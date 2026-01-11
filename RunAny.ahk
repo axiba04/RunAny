@@ -3940,7 +3940,7 @@ Plugins_Object_Register:
 	if(PluginsObjList["RunAny_Menu.ahk"]){
 		if(InStr(PluginsContentList["RunAny_Menu.ahk"],"SetTimer,Transparent_Show"))
 			global RunAnyMenuTransparentFlag:=true
-		if(InStr(PluginsContentList["RunAny_Menu.ahk"],"~Space Up::"))
+		if(InStr(PluginsContentList["RunAny_Menu.ahk"],"Space::"))
 			global RunAnyMenuSpaceFlag:=true
 		if(InStr(PluginsContentList["RunAny_Menu.ahk"],"~RButton Up::"))
 			global RunAnyMenuRButtonFlag:=true
