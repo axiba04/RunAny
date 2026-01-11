@@ -42,11 +42,12 @@ return
 	MenuClick(Var_Read("RunAnyMenuRButtonRun",5))
 return
 
-~Space Up::
-	WinWait,ahk_class #32768,, 1
-	if ErrorLevel
+Space::
+	if !WinExist("ahk_class #32768"){
+		SendInput,{Space}
 		return
-	MenuClick(Var_Read("RunAnyMenuSpaceRun",2))
+	}
+	MenuClick(Var_Read("RunAnyMenuSpaceRun",1))
 return
 
 ~MButton Up::
@@ -73,6 +74,11 @@ return
 #If
 
 MenuClick(buttonRun){
+	; 如果值为1，直接执行菜单项（发送Enter键）
+	if(buttonRun=1){
+		SendInput,{Enter}
+		return
+	}
 	HoldKeyList:={"HoldCtrlRun":2,"HoldCtrlShiftRun":3,"HoldCtrlWinRun":4,"HoldShiftRun":5,"HoldShiftWinRun":6,"HoldCtrlShiftWinRun":7}
 	HoldKeyValList:={"HoldCtrlRun":2,"HoldCtrlShiftRun":3,"HoldCtrlWinRun":11,"HoldShiftRun":5,"HoldShiftWinRun":31,"HoldCtrlShiftWinRun":4}
 	for k, v in HoldKeyList
